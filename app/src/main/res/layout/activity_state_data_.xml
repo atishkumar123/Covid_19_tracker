@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECEAEA"
+    tools:context=".countriesDataActivity">
+
+    <EditText
+        android:id="@+id/state_edit_search"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="10dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/ic_baseline_search_24"
+        android:background="@drawable/search_backgroung"
+        android:hint="search"
+        android:paddingLeft="20dp"
+        android:drawablePadding="10dp"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/state_listView"
+        android:layout_below="@+id/state_edit_search"
+        android:layout_margin="10dp"/>
+
+
+    <com.leo.simplearcloader.SimpleArcLoader
+        android:visibility="visible"
+        android:id="@+id/loader"
+        android:layout_centerInParent="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:arc_style="simple_arc"
+
+        >
+    </com.leo.simplearcloader.SimpleArcLoader>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:cardElevation="10dp"
+       app:cardCornerRadius="5dp"
+       android:layout_margin="10dp">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <TextView
+               android:id="@+id/state_name"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="25dp"
+               android:layout_marginTop="20dp"
+               android:text="State Name"
+               android:textAllCaps="true"
+               android:textSize="28sp"
+               android:textStyle="bold"
+               android:gravity="center"/>
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="5dp"
+               android:layout_marginRight="20dp"
+               android:background="#878484" />
+           <ScrollView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"></ScrollView>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="25dp"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginRight="25dp"
+                       android:layout_marginBottom="10dp">
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily="sans-serif-light"
+                           android:text="totalCases"
+                           android:textColor="@color/text_color"
+                           android:textSize="18sp"
+                           android:textStyle="bold" />
+
+                       <TextView
+                           android:id="@+id/State_cases"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentRight="true"
+                           android:text="0"
+                           android:textColor="@color/death_color"
+                           android:textSize="18dp" />
+
+                   </RelativeLayout>
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="1dp"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:background="#878484" />
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="25dp"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginRight="25dp"
+                       android:layout_marginBottom="10dp">
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily="sans-serif-light"
+                           android:text="totalDeath"
+                           android:textColor="@color/text_color"
+                           android:textSize="18sp"
+                           android:textStyle="bold" />
+
+                       <TextView
+                           android:id="@+id/state_Death"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentRight="true"
+                           android:text="0"
+                           android:textColor="@color/death_color"
+                           android:textSize="18dp" />
+
+                   </RelativeLayout>
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="1dp"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:background="#878484" />
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="25dp"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginRight="25dp"
+                       android:layout_marginBottom="10dp">
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily="sans-serif-light"
+                           android:text="Recovered"
+                           android:textColor="@color/text_color"
+                           android:textSize="18sp"
+                           android:textStyle="bold" />
+
+                       <TextView
+                           android:id="@+id/state_recovered"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentRight="true"
+                           android:text="0"
+                           android:textColor="@color/death_color"
+                           android:textSize="18dp" />
+
+                   </RelativeLayout>
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="1dp"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:background="#878484" />
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="25dp"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginRight="25dp"
+                       android:layout_marginBottom="10dp">
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily="sans-serif-light"
+                           android:text="Active"
+                           android:textColor="@color/text_color"
+                           android:textSize="18sp"
+                           android:textStyle="bold" />
+
+                       <TextView
+                           android:id="@+id/state_active"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentRight="true"
+                           android:text="0"
+                           android:textColor="@color/death_color"
+                           android:textSize="18dp" />
+
+                   </RelativeLayout>
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="1dp"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:background="#878484" />
+
+
+               </LinearLayout>
+           <Button
+               android:id="@+id/btn_traker"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true"
+               android:layout_margin="20dp"
+               android:background="#E53935"
+               android:text="track country"
+               android:textSize="18dp"
+               android:textColor="#fff"
+               android:padding="5dp"
+               android:onClick="goTrackCountry"
+               />
+
+
+
+       </LinearLayout>
+
+
+
+   </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
