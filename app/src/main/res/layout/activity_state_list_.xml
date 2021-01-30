@@ -5,32 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ECEAEA"
-    tools:context=".countriesDataActivity">
+    tools:context=".countries_list_Activity"
+    android:backgroundTint="@color/whiteColor">
 
-    <EditText
-        android:id="@+id/state_edit_search"
+    <FrameLayout
+        android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="10dp"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:padding="10dp"
-        android:drawableLeft="@drawable/ic_baseline_search_24"
-        android:background="@drawable/search_backgroung"
-        android:hint="search"
-        android:paddingLeft="20dp"
-        android:drawablePadding="10dp"/>
+        android:layout_height="wrap_content">
+        <include
+            layout="@layout/toolbar_layout"
+            android:id="@+id/state_list_toolbar"
+            />
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/State_search_view"
+            />
+
+    </FrameLayout>
     <ListView
+
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:id="@+id/state_listView"
-        android:layout_below="@+id/state_edit_search"
-        android:layout_margin="10dp"/>
+        android:layout_below="@+id/toolbar_container"
+        android:layout_margin="10dp"
+        android:background="@color/whiteColor"/>
 
 
     <com.leo.simplearcloader.SimpleArcLoader
         android:visibility="visible"
-        android:id="@+id/loader"
+        android:id="@+id/state_loader"
         android:layout_centerInParent="true"
         android:layout_width="60dp"
         android:layout_height="60dp"

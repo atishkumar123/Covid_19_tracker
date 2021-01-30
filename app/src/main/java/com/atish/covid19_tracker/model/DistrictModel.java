@@ -1,19 +1,22 @@
 package com.atish.covid19_tracker.model;
 
 public class DistrictModel {
-    String DistrictName,totalCase,totalDeath,recovered;
+    String DistrictName, totalCase, deceased, recovered, active,today_case,today_death,today_recovered;
 
 
-    public DistrictModel(){
+    public DistrictModel() {
 
     }
 
-    public DistrictModel(String districtName, String totalCase, String totalDeath, String recovered) {
+    public DistrictModel(String districtName, String totalCase, String deceased, String recovered, String active, String today_case, String today_death, String today_recovered) {
         DistrictName = districtName;
         this.totalCase = totalCase;
-        this.totalDeath = totalDeath;
+        this.deceased = deceased;
         this.recovered = recovered;
-
+        this.active = active;
+        this.today_case = today_case;
+        this.today_death = today_death;
+        this.today_recovered = today_recovered;
     }
 
     public String getDistrictName() {
@@ -32,12 +35,12 @@ public class DistrictModel {
         this.totalCase = totalCase;
     }
 
-    public String getTotalDeath() {
-        return totalDeath;
+    public String getDeceased() {
+        return deceased;
     }
 
-    public void setTotalDeath(String totalDeath) {
-        this.totalDeath = totalDeath;
+    public void setDeceased(String deceased) {
+        this.deceased = deceased;
     }
 
     public String getRecovered() {
@@ -48,7 +51,35 @@ public class DistrictModel {
         this.recovered = recovered;
     }
 
+    public String getActive() {
+        return active;
+    }
 
+    public void setActive(String active) {
+        this.active = active;
+    }
+
+    public String getToday_case() {
+        return today_case;
+    }
+
+    public void setToday_case(String today_case) {
+        this.today_case = today_case;
+    }
+
+    public String getToday_death() {
+        return today_death;
+    }
+
+    public void setToday_death(String today_death) {
+        this.today_death = today_death;
+    }
+
+    public String getToday_recovered() {
+        return today_recovered;
+    }
+
+    public void setToday_recovered(String today_recovered) {
+        this.today_recovered = today_recovered;
+    }
 }
-
-

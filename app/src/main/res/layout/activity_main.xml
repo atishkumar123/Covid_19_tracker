@@ -5,9 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+    <include
+        layout="@layout/toolbar_layout"
+        android:id="@+id/toolbar"
+        />
 
     <androidx.cardview.widget.CardView
+        android:layout_below="@+id/toolbar"
+
         android:id="@+id/chart_card_view"
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -184,7 +189,8 @@
                     android:text="global status"
                     android:textAllCaps="true"
                     android:textSize="28sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/text_color"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -220,7 +226,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:text="totalCases"
+                                android:text="Total_Cases"
                                 android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -255,7 +261,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:text="Death"
+                                android:text="Total_Death"
                                 android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -290,7 +296,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:text="Recoverd"
+                                android:text="Recovered"
                                 android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -395,7 +401,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:text="today Case"
+                                android:text="Today_Case"
                                 android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -439,7 +445,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:text="today Death"
+                                android:text="Today_Death"
                                 android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -465,7 +471,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:text="today Recoverd"
+                                android:text="Today_Recoverd"
                                 android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -500,7 +506,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-light"
-                                android:text="AffectedCountries"
+                                android:text="Affected_Countries"
                                 android:textColor="@color/text_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -540,7 +546,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
-            android:background="#E53935"
+            android:background="@drawable/btn_background"
             android:text="track country"
             android:textSize="18dp"
             android:textColor="#fff"

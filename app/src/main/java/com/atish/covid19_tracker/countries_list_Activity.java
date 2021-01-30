@@ -1,15 +1,19 @@
 package com.atish.covid19_tracker;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.atish.covid19_tracker.Adapter.CountryCustomAdapter;
 import com.atish.covid19_tracker.model.CountryModel;
 import com.leo.simplearcloader.SimpleArcLoader;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,61 +34,60 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class countriesDataActivity extends AppCompatActivity {
+public class countries_list_Activity extends AppCompatActivity {
     EditText editSearch;
     ListView listView;
     SimpleArcLoader simpleArcLoader;
     public static List<CountryModel> countryModelList = new ArrayList<>();
     CountryModel countryModel;
     CountryCustomAdapter countryCustomAdapter;
+    private MaterialSearchView materialSearchView;
+    MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_countries_data);
-        editSearch = findViewById(R.id.edit_search);
+        setContentView(R.layout.activity_countries_list);
+
         listView = findViewById(R.id.listView);
         simpleArcLoader = findViewById(R.id.loader);
-        getSupportActionBar().setTitle("Affected Countries");
+        Toolbar toolbar = findViewById(R.id.country_data_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Affected country");
+
+        searchView = findViewById(R.id.search_view);
+//        getSupportActionBar().setTitle("Affected Countries");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(countries_list_Activity.this, MainActivity.class));
+                finish();
+
+            }
+        });
 
         fetchData();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(countriesDataActivity.this, countryDetails_Activity.class);
+                Intent intent = new Intent(countries_list_Activity.this, countryDetails_Activity.class);
                 intent.putExtra("position", position);
                 startActivity(intent);
+                finish();
             }
         });
 
-        editSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                countryCustomAdapter.getFilter().filter(s);
-                countryCustomAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
     }
 
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
-    }
+
+
+
 
     private void fetchData() {
         String url = "https://disease.sh/v3/covid-19/countries";
@@ -110,7 +114,7 @@ public class countriesDataActivity extends AppCompatActivity {
                         countryModelList.add(countryModel);
                     }
 
-                    countryCustomAdapter = new CountryCustomAdapter(countriesDataActivity.this, countryModelList);
+                    countryCustomAdapter = new CountryCustomAdapter(countries_list_Activity.this, countryModelList);
                     listView.setAdapter(countryCustomAdapter);
                     simpleArcLoader.stop();
                     simpleArcLoader.setVisibility(View.GONE);
@@ -129,7 +133,7 @@ public class countriesDataActivity extends AppCompatActivity {
                 simpleArcLoader.stop();
                 simpleArcLoader.setVisibility(View.GONE);
 
-                Toast.makeText(countriesDataActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(countries_list_Activity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -137,5 +141,67 @@ public class countriesDataActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.app_bar_search);
 
+        searchView.setMenuItem(menuItem);
+        searchView.setHint("Search Corona States By States..");
+
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                countryCustomAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                countryCustomAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id=item.getItemId();
+
+
+        if(id==R.id.homeIcon){
+            startActivity(new Intent(countries_list_Activity.this,MainActivity.class));
+            finish();
+        }
+        if(id==R.id.track_state){
+            startActivity(new Intent(countries_list_Activity.this,StateList_Activity.class));
+            finish();
+        }
+        if (id == R.id.about) {
+            final AlertDialog.Builder alert = new AlertDialog.Builder(countries_list_Activity.this);
+            View mview = getLayoutInflater().inflate(R.layout.about_app, null);
+            alert.setView(mview);
+            final AlertDialog alertDialog = alert.create();
+            TextView version=mview.findViewById(R.id.version);
+            TextView close=mview.findViewById(R.id.close);
+            version.setText("Version "+BuildConfig.VERSION_NAME);
+            alertDialog.show();
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(countries_list_Activity.this,MainActivity.class));
+        finish();
+        super.onBackPressed();
+    }
 }

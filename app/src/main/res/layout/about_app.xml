@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/whiteColor">
+    <LinearLayout
+        android:id="@+id/linearlayout_about_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/coronavirus"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:textSize="23dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/text_color"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:layout_marginBottom="15dp">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Covid_19_Tracker"
+               android:textSize="16dp"
+               android:textColor="@color/text_color"/>
+           <TextView
+               android:id="@+id/version"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Version 1.0"
+               android:textSize="16dp"
+               android:textColor="@color/text_color"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Developed by Atish Kumar"
+
+               android:textSize="16dp"
+               android:textColor="@color/text_color"/>
+
+       </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Third party license"
+
+                android:textSize="16dp"
+                android:textColor="@color/text_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="https://github.com/google/volley"
+
+                android:textSize="16dp"
+                android:textColor="@color/text_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="https://github.com/bumptech/glide"
+
+                android:textSize="16dp"
+                android:textColor="@color/text_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="https://disease.sh/v3/covid-19/all"
+
+                android:textSize="16dp"
+                android:textColor="@color/text_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="https://disease.sh/v3/covid-19/countries"
+
+                android:textSize="16dp"
+                android:textColor="@color/text_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="https://api.covid19india.org/state_district_wise.json"
+
+                android:textSize="16dp"
+                android:textColor="@color/text_color"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+<TextView
+    android:id="@+id/close"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Close"
+    android:textStyle="bold"
+    android:textSize="18dp"
+    android:layout_below="@+id/linearlayout_about_container"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="30dp"
+    android:layout_marginBottom="10dp"/>
+
+
+
+
+
+</RelativeLayout>
